@@ -15,7 +15,7 @@ env:
 app:
   replicas: 1
   workload: general
-  command: ["bundle", "exec", "puma", "-C", "/webapps/server/config/config.ru"]
+  command: ["bundle", "exec", "puma", "-C", "/app/server/config/config.ru"]
   port: 9292
   livenessProbe:
     httpGet:
@@ -38,7 +38,7 @@ app:
 
 persisentVolume:
   efsEndpoint: fs-9fe62f57.efs.eu-west-1.amazonaws.com
-  mountpoint: /webapps/geminabox/data
+  mountpoint: /app/data
 
 ingress:
   access: internal

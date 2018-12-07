@@ -1,7 +1,7 @@
 require "geminabox"
 
 Geminabox.allow_replace = !!ENV['ALLOW_REPLACE']
-Geminabox.data = '/webapps/geminabox/data'
+Geminabox.data = '/app/geminabox/data'
 Geminabox.build_legacy = false
 
 $username = ENV['USERNAME']

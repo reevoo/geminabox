@@ -1,3 +1,3 @@
 #!/bin/bash
 set -e
-puma -C /webapps/server/config/config.ru
+puma -C /app/server/config/config.ru
