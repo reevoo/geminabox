@@ -18,4 +18,6 @@ COPY assets/server_config/config.ru /app/server/config/config.ru
 
 COPY assets/entrypoint.sh /app/server
 
+RUN ls -al /app/server/entrypoint.sh
+
 ENTRYPOINT ["/app/server/entrypoint.sh"]
