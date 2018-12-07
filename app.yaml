@@ -15,7 +15,7 @@ env:
 app:
   replicas: 1
   workload: general
-  command: ["bundle", "exec", "puma", "-C", "/app/server/config/config.ru"]
+  command: ["/app/server/entrypoint.sh"]
   port: 9292
   livenessProbe:
     httpGet:
