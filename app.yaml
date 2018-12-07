@@ -21,7 +21,7 @@ app:
     httpGet:
       path: /
       port: http
-    initialDelaySeconds: 10
+    initialDelaySeconds: 30
     timeoutSeconds: 10
   readinessProbe:
     httpGet:
