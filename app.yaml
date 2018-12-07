@@ -37,8 +37,9 @@ app:
       cpu: 150m
 
 persistentVolume:
-  efsEndpoint: fs-9fe62f57.efs.eu-west-1.amazonaws.com
-  mountpoint: /app/data
+  geminabox:
+    efsEndpoint: fs-9fe62f57.efs.eu-west-1.amazonaws.com
+    mountpoint: /app/geminabox/data
 
 ingress:
   access: internal
