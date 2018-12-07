@@ -1,4 +1,4 @@
-FROM ruby:2.3.4
+FROM ruby:2.3.8
 
 RUN gem install --no-ri --no-rdoc geminabox -v 0.13.9
 RUN mkdir -p /apps/config && \
