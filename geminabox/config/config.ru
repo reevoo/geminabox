@@ -3,6 +3,8 @@ require "geminabox"
 Geminabox.allow_replace = !!ENV['ALLOW_REPLACE']
 Geminabox.data = '/app/geminabox/data'
 Geminabox.build_legacy = false
+Geminabox.rubygems_proxy = true
+Geminabox.allow_remote_failure = true
 
 $username = ENV['USERNAME']
 $password = ENV['PASSWORD']
