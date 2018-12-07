@@ -10,5 +10,5 @@ services:
       RAILS_ENV: test
       RACK_ENV: test
     volumes:
-      - .:/app
+      - ${PWD}/.buildkite:/app/geminabox/.buildkite
     command: ["/app/server/entrypoint.sh"]
