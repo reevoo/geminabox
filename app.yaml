@@ -38,7 +38,7 @@ app:
 
 persistentVolume:
   efsEndpoint: fs-9fe62f57.efs.eu-west-1.amazonaws.com
-  mountpoint: /app/geminabox/data
+  mountPath: /app/geminabox/data
 
 ingress:
   access: internal
