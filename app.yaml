@@ -36,6 +36,10 @@ app:
       memory: 256Mi
       cpu: 150m
 
+persisentVolume:
+  efsEndpoint: fs-9fe62f57.efs.eu-west-1.amazonaws.com
+  mountpoint: /webapps/geminabox/data
+
 ingress:
   access: internal
   host: gems.reevoocloud.com
