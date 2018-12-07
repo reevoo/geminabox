@@ -11,4 +11,4 @@ services:
       RACK_ENV: test
     volumes:
       - .:/app
-    command: ["bundle", "exec", "puma", "-C", "/app/server/config/config.ru"]
+    command: ["/app/server/entrypoint.sh"]
