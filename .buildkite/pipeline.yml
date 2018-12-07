@@ -4,10 +4,6 @@ steps:
     command: |
       make publish
 
-  - label: ":bomb: Tests"
-    command: |
-      make test
-
   - block: ":rocket: Deploy to production! :dragon:"
     fields:
       - select: "I'm sure, I'm deploying to PRODUCTION!"
