@@ -2,7 +2,8 @@ FROM ruby:2.3.4
 
 RUN gem install --no-ri --no-rdoc geminabox -v 0.13.9
 RUN mkdir -p /apps/config && \
-	mkdir -p /apps/data
+	mkdir -p /apps/data && \
+	mkdir -p /apps/server
 
 RUN mkdir -p /tmp
 RUN chmod o+t /tmp
