@@ -5,7 +5,7 @@ RUN groupadd -g 1006 conan && \
     useradd -r -u 1006 -g conan conan
 
 
-RUN gem install --no-ri --no-rdoc geminabox -v 0.13.15
+RUN gem install --no-ri --no-rdoc geminabox -v 1.1.1
 RUN mkdir -p /app/geminabox/config && \
 	mkdir -p /app/geminabox/data
 
