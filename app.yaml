@@ -30,10 +30,10 @@ app:
     initialDelaySeconds: 10
   resources:
     requests:
-      memory: 768Mi
+      memory: 1536Mi
       cpu: 1500m
     limits:
-      memory: 768Mi
+      memory: 1536Mi
       cpu: 1500m
 
 persistentVolume:
