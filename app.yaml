@@ -22,7 +22,7 @@ app:
       path: /
       port: http
     initialDelaySeconds: 30
-    timeoutSeconds: 10
+    timeoutSeconds: 20
   readinessProbe:
     httpGet:
       path: /
@@ -37,8 +37,10 @@ app:
       cpu: 1500m
 
 persistentVolume:
-  efsEndpoint: fs-9fe62f57.efs.eu-west-1.amazonaws.com
+  type: ebs
   mountPath: /app/geminabox/data
+  volumeName: vol-0b0e6b807e15025dc
+  volumeAZ: eu-west-1a
 
 ingress:
   access: internal
