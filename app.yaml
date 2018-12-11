@@ -1,0 +1,47 @@
+name: geminabox
+
+image:
+  repository: quay.io/reevoo/geminabox
+
+env:
+  RAILS_ENV:
+    value: production
+  RACK_ENV:
+    value: production
+  APP_NAME:
+    doc: name of the app
+    value: geminabox
+
+app:
+  replicas: 1
+  workload: general
+  command: ["/app/server/entrypoint.sh"]
+  port: 9292
+  livenessProbe:
+    httpGet:
+      path: /
+      port: http
+    initialDelaySeconds: 30
+    timeoutSeconds: 20
+  readinessProbe:
+    httpGet:
+      path: /
+      port: http
+    initialDelaySeconds: 10
+  resources:
+    requests:
+      memory: 1536Mi
+      cpu: 1500m
+    limits:
+      memory: 1536Mi
+      cpu: 1500m
+
+persistentVolume:
+  type: ebs
+  mountPath: /app/geminabox/data
+  volumeName: vol-0b0e6b807e15025dc
+  volumeAZ: eu-west-1a
+
+ingress:
+  access: internal
+  host: gems.reevoocloud.com

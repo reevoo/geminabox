@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+
+  app:
+    build:
+      context: .
+    ports:
+      - 9292:9292
+    environment:
+      RAILS_ENV: test
+      RACK_ENV: test
+    volumes:
+      - ${PWD}/.buildkite:/app/geminabox/.buildkite
+    command: ["/app/server/entrypoint.sh"]
