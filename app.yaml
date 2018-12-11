@@ -46,4 +46,4 @@ ingress:
   access: internal
   host: gems.reevoocloud.com
   annotations:
-    - nginx.ingress.kubernetes.io/client-max-body-size: 8m
+    nginx.ingress.kubernetes.io/client-max-body-size: 8m
