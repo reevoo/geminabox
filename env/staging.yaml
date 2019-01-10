@@ -1,0 +1,19 @@
+env:
+  RAILS_ENV:
+    value: staging
+  RACK_ENV:
+    value: staging
+
+ingress:
+  access: internal
+  host: gems-staging.reevoocloud.com
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 16m
+
+volumes:
+  - type: ebs
+    name: geminabox-storage
+    mountPath: /app/geminabox/data
+    ebsVolumeID: vol-0056b92565bfc4ad2
+    ebsVolumeAZ: eu-west-1a
+

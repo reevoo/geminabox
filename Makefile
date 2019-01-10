@@ -8,8 +8,8 @@ AWS_ACCOUNT			?= 896069866492
 AWS_REGION			?= eu-west-1
 APP_NAME			:= geminabox
 IMAGE_REPOSITORY	:= quay.io/reevoo/$(APP_NAME)
-ifneq (,$(wildcard env/${K8S_NAMESPACE}_app.yaml))
-	ENV_SPECIFIC_CONFIG := -f env/${K8S_NAMESPACE}_app.yaml
+ifneq (,$(wildcard env/${K8S_NAMESPACE}.yaml))
+	ENV_SPECIFIC_CONFIG := -f env/${K8S_NAMESPACE}.yaml
 endif
 
 export APP_NAME
