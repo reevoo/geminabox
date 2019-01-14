@@ -4,17 +4,14 @@ image:
   repository: quay.io/reevoo/geminabox
 
 env:
-  RAILS_ENV:
-    value: production
-  RACK_ENV:
-    value: production
   APP_NAME:
     doc: name of the app
     value: geminabox
 
 app:
   replicas: 1
-  strategy: Recreate
+  strategy:
+    type: Recreate
   workload: general
   command: ["/app/server/entrypoint.sh"]
   port: 9292
@@ -29,22 +26,12 @@ app:
       path: /
       port: http
     initialDelaySeconds: 10
+    timeoutSeconds: 20
   resources:
     requests:
-      memory: 1536Mi
-      cpu: 1500m
+      memory: 512Mi
+      cpu: 250m
     limits:
-      memory: 1536Mi
-      cpu: 1500m
+      memory: 1028Mi
+      cpu: 750m
 
-persistentVolume:
-  type: ebs
-  mountPath: /app/geminabox/data
-  volumeName: vol-0b0e6b807e15025dc
-  volumeAZ: eu-west-1a
-
-ingress:
-  access: internal
-  host: gems.reevoocloud.com
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 16m
