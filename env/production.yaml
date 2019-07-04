@@ -13,7 +13,6 @@ ingress:
 volumes:
   - type: ebs
     name: geminabox-storage
-    mountPath: /app/geminabox/data
     ebsVolumeID: vol-0b0e6b807e15025dc
     ebsVolumeAZ: eu-west-1a
 
