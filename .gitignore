@@ -13,3 +13,4 @@ test/fixtures/fake_home_path/.gem/specs
 *.gem
 test/fixtures/*.fixture
 *.swp
+.terraform

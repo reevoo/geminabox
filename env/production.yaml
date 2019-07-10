@@ -11,8 +11,7 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-body-size: 16m
 
 volumes:
-  - type: ebs
-    name: geminabox-storage
-    ebsVolumeID: vol-0b0e6b807e15025dc
-    ebsVolumeAZ: eu-west-1a
+  - type: efs
+    name: storage-efs
+    efsEndpoint: geminabox-production-efs.reevoocloud.com
 
