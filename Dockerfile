@@ -5,7 +5,7 @@ RUN groupadd -g 1006 conan && \
 
 RUN gem install --no-document \
     geminabox:1.1.1 \
-    puma
+    puma:3.12.1
 
 RUN mkdir -p /app/geminabox/config && \
 	mkdir -p /app/geminabox/data
