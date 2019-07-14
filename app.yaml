@@ -35,5 +35,5 @@ app:
       memory: 1028Mi
       cpu: 750m
   volumes:
-    storage-efs: /app/geminabox/data
+    geminabox-storage: /app/geminabox/data
 
