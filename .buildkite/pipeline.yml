@@ -43,10 +43,10 @@ steps:
       - ssh://git@github.com/reevoo/konfiguration-buildkite-plugin.git#v0.0.2: ~
       - ssh://git@github.com/reevoo/git-buildkite-plugin.git#v0.0.3:
           repo: git@github.com:reevoo/charts.git
-          branch: v3.2.1
+          branch: v4.0
           dest: charts
       - docker#v2.0.0:
-          image: "quay.io/reevoo/kube-release:eks"
+          image: "quay.io/reevoo/kube-release:eks-helm3"
           workdir: "/app"
           volumes:
             - ".:/app"
