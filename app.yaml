@@ -1,7 +1,7 @@
 name: geminabox
 
 image:
-  repository: quay.io/reevoo/geminabox
+  repository: 896069866492.dkr.ecr.eu-west-1.amazonaws.com/geminabox
 
 env:
   APP_NAME:

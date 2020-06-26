@@ -1,6 +1,16 @@
+_templates: 
+  - &ecr-auth
+    ecr#v2.1.0:
+      login: true
+      account_ids: "896069866492"
+      no-include-email: true
+      region: "eu-west-1"
+
 steps:
 
   - label: ":docker: Build"
+    plugins:
+      - *ecr-auth
     command: |
       make publish
 
@@ -37,16 +47,25 @@ steps:
           - label: ":dragon_face: yes, unleash the dragon! :dragon:"
             value: "yes"
 
+  - label: ":docker: Tag Image"
+    plugins:
+      - *ecr-auth
+    command: |
+      make tag-prod-image
+
+  - wait
+
   - label: ":helm: :arrow_right: :k8s: production"
     command: make deploy
     plugins:
+      - *ecr-auth
       - ssh://git@github.com/reevoo/konfiguration-buildkite-plugin.git#v0.0.2: ~
       - ssh://git@github.com/reevoo/git-buildkite-plugin.git#v0.0.3:
           repo: git@github.com:reevoo/charts.git
           branch: v4.0
           dest: charts
       - docker#v2.0.0:
-          image: "quay.io/reevoo/kube-release:eks-helm3"
+          image: "896069866492.dkr.ecr.eu-west-1.amazonaws.com/kube-release:eks-helm3"
           workdir: "/app"
           volumes:
             - ".:/app"
