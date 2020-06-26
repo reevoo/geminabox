@@ -7,7 +7,7 @@ BUILDKITE_COMMIT	?= $(GIT_HASH)
 AWS_ACCOUNT			?= 896069866492
 AWS_REGION			?= eu-west-1
 APP_NAME			:= geminabox
-IMAGE_REPOSITORY	:= quay.io/reevoo/$(APP_NAME)
+IMAGE_REPOSITORY	:= 896069866492.dkr.ecr.eu-west-1.amazonaws.com/$(APP_NAME)
 ifneq (,$(wildcard env/${K8S_NAMESPACE}.yaml))
 	ENV_SPECIFIC_CONFIG := -f env/${K8S_NAMESPACE}.yaml
 endif
@@ -55,6 +55,14 @@ deploy: kubeconfig
 		--set image.repository=${IMAGE_REPOSITORY},image.tag=${BUILDKITE_COMMIT} \
 		${APP_NAME}-${K8S_NAMESPACE} \
 		charts/reevooapp
+
+.PHONY: tag-prod-image
+tag-prod-image:
+	.buildkite/put_ecr_tag.sh ${APP_NAME} ${BUILDKITE_COMMIT}
+
+.PHONY: image-scan
+image-scan:
+	.buildkite/ecr_scan_findings.sh ${APP_NAME} ${BUILDKITE_COMMIT}
 
 .PHONY: clean
 clean: down
