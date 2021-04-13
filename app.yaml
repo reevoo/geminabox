@@ -32,8 +32,7 @@ app:
       memory: 512Mi
       cpu: 250m
     limits:
-      memory: 1028Mi
+      memory: 2056Mi
       cpu: 750m
   volumes:
     geminabox-storage: /app/geminabox/data
-
