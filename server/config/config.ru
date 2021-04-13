@@ -5,7 +5,7 @@
 #
 threads 0, 4
 
-workers 2
+workers 8
 
 # Verifies that all workers have checked in to the master process within
 # the given timeout. If not the worker process will be restarted. Default
